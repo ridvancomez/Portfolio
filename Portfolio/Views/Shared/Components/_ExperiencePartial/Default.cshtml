@@ -1,0 +1,49 @@
+﻿@using EntityLayer.Concrete
+@model List<Experience>
+<div class="row about-content about-content--timeline">
+
+    <div class="col-full text-center">
+        <h3>Deneyimlerim</h3>
+    </div>
+
+    <div class="col-six tab-full left">
+        <div class="timeline">
+            @for (int i = 0; i < Model.Count; i += 2)
+            {
+                <div class="timeline__block">
+                    <div class="timeline__bullet"></div>
+                    <div class="timeline__header">
+                        <p class="timeline__timeframe">@Model[i].Date</p>
+                        <h3>@Model[i].Header</h3>
+                        <h5>@Model[i].Title</h5>
+                    </div>
+                    <div class="timeline__desc">
+                        <p>@Model[i].Description</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div> 
+
+    <div class="col-six tab-full right">
+        <div class="timeline">
+
+            @for (int i = 1; i < Model.Count; i += 2)
+            {
+                <div class="timeline__block">
+                    <div class="timeline__bullet"></div>
+                    <div class="timeline__header">
+                        <p class="timeline__timeframe">@Model[i].Date</p>
+                        <h3>@Model[i].Header</h3>
+                        <h5>@Model[i].Title</h5>
+                    </div>
+                    <div class="timeline__desc">
+                        <p>@Model[i].Description</p>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+
+</div> 

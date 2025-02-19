@@ -1,0 +1,108 @@
+﻿@model List<EntityLayer.Concrete.Contact>
+
+<section id="contact" class="s-contact target-section">
+
+    <div class="overlay"></div>
+
+    <div class="row narrow section-intro">
+        <div class="col-full">
+            <h3>İletişim</h3>
+            <h1>@Model[0].Title</h1>
+
+            <p class="lead">@Model[0].Description</p>
+        </div>
+    </div>
+
+    <div class="row contact__main">
+        <div class="col-eight tab-full contact__form">
+                <fieldset>
+                    <div class="form-field">
+                    <input name="contactName" type="text" id="NameSurname" placeholder="İsim Soyisim" value="" minlength="2" required="" aria-required="true" class="full-width">
+                    </div>
+                    <div class="form-field">
+                    <input name="contactEmail" type="Email" id="Email" placeholder="E Posta" value="" required="" aria-required="true" class="full-width">
+                    </div>
+                    <div class="form-field">
+                    <input name="contactSubject" type="text" id="Subject" placeholder="Konu" value="" class="full-width">
+                    </div>
+                    <div class="form-field">
+                    <textarea name="contactMessage" id="MessageDetail" placeholder="Mesaj" rows="10" cols="50" required="" aria-required="true" class="full-width"></textarea>
+                    </div>
+                    <div class="form-field">
+                    <button id="formButton" class="full-width btn--primary">Submit</button>
+                        <div class="submit-loader">
+                            <div class="text-loader">Sending...</div>
+                            <div class="s-loader">
+                                <div class="bounce1"></div>
+                                <div class="bounce2"></div>
+                                <div class="bounce3"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+            <!-- contact-warning -->
+            <div id="message-warning" class="message-warning">
+                Bir hata oluştu. Lütfen tekrar deneyin.
+            </div>
+
+            <!-- contact-success -->
+            <div id="message-success" class="message-success" style="color:white">
+                Mesajınız başarıyla gönderildi<br>
+            </div>
+
+        </div>
+        <div class="col-four tab-full contact__infos">
+            <h4 class="h06">Telefon</h4>
+            <p>
+                Telefon : @Model[0].Phone1<br>
+                Telefon : @Model[0].Phone2<br>
+            </p>
+
+            <h4 class="h06">E Posta</h4>
+            <p>
+                @Model[0].Email1<br>
+                @Model[0].Email2
+            </p>
+
+            <h4 class="h06">Addres</h4>
+            <p>
+                @Model[0].Adress
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $('#formButton').click(function(){
+        var formData = {
+            NameSurname: $('#NameSurname').val(),
+            Email: $('#Email').val(),
+            Subject: $('#Subject').val(),
+            MessageDetail: $('#MessageDetail').val(),
+        }
+        $.ajax({
+            url:'/ContactMessage/SendMessage',
+            contentType: "application/json",
+            type:'POST',
+            data: JSON.stringify(formData),
+
+            success: function(p)
+            {
+                alert('Mesajınız başarıyla gönderildi.');
+                $('#NameSurname').val() = '';
+
+            },
+            error: function()
+            {
+                alert('Bir hata oluştu. Lütfen tekrar deneyin.');
+            }
+        })
+    })
+</script>

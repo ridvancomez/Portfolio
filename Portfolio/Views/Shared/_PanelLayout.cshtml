@@ -1,0 +1,26 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    @await Html.PartialAsync("~/Views/Shared/Panel/_PanelHeadPartial.cshtml")
+
+<body>  
+
+    <div class="container-scroller">
+
+        @await Html.PartialAsync("~/Views/Shared/Panel/_PanelHeaderPartial.cshtml")
+
+        <div class="container-fluid page-body-wrapper">
+            @await Html.PartialAsync("~/Views/Shared/Panel/_PanelSideBarPartial.cshtml")
+
+            @RenderBody()
+        </div>
+    </div>
+
+    @await Html.PartialAsync("~/Views/Shared/Panel/_PanelScriptPartial.cshtml")
+
+</body>
+</html>

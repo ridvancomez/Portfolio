@@ -1,0 +1,60 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\APILayer\APILayer.csproj" />
+    <ProjectReference Include="..\EntityLayer\EntityLayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Panel\Data\" />
+    <Folder Include="Areas\Panel\Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Panel\.DS_Store" />
+    <None Include="wwwroot\Panel\css\.DS_Store" />
+    <None Include="wwwroot\Panel\documentation\.DS_Store" />
+    <None Include="wwwroot\Panel\fonts\.DS_Store" />
+    <None Include="wwwroot\Panel\fonts\Roboto\.DS_Store" />
+    <None Include="wwwroot\Panel\images\.DS_Store" />
+    <None Include="wwwroot\Panel\images\auth\.DS_Store" />
+    <None Include="wwwroot\Panel\images\faces\.DS_Store" />
+    <None Include="wwwroot\Panel\js\.DS_Store" />
+    <None Include="wwwroot\Panel\pages\.DS_Store" />
+    <None Include="wwwroot\Panel\pages\charts\.DS_Store" />
+    <None Include="wwwroot\Panel\pages\forms\.DS_Store" />
+    <None Include="wwwroot\Panel\pages\icons\.DS_Store" />
+    <None Include="wwwroot\Panel\pages\samples\.DS_Store" />
+    <None Include="wwwroot\Panel\pages\tables\.DS_Store" />
+    <None Include="wwwroot\Panel\pages\ui-features\.DS_Store" />
+    <None Include="wwwroot\Panel\partials\.DS_Store" />
+    <None Include="wwwroot\Panel\scss\.DS_Store" />
+    <None Include="wwwroot\Panel\scss\components\.DS_Store" />
+    <None Include="wwwroot\Panel\scss\mixins\.DS_Store" />
+    <None Include="wwwroot\Panel\vendors\.DS_Store" />
+  </ItemGroup>
+
+</Project>

@@ -1,8 +1,50 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model List<EntityLayer.Concrete.Contact>
+@await Component.InvokeAsync("_FeaturePartial")
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+<section id="about" class="s-about target-section">
+
+    @await Component.InvokeAsync("_AboutPartial") @*Hem Skill Hem About Partailı mevcut*@
+
+    
+
+
+    <div class="row about-content about-content--buttons">
+        <div class="col-six tab-full left">
+            <a href="~/ridvancomezcv.pdf" class="btn btn--primary full-width">Cv'mi İndirin</a>
+        </div>
+        <div class="col-six tab-full right">
+            <a href="#contact" class="btn full-width smoothscroll">Bana Ulasın</a>
+        </div>
+    </div>
+    @await Component.InvokeAsync("_ExperiencePartial")
+
+</section>
+
+@await Component.InvokeAsync("_TestimonialPartial")
+
+<section id="blog" class="s-blog target-section">
+
+    <div class="row narrow section-intro has-bottom-sep">
+        <div class="col-full">
+            <h3>Blog</h3>
+            <h1>Son Bloglarım.</h1>
+            <p class="lead">
+                Güncel teknolojiler, yazılım geliştirme ipuçları ve sektörel analizler… Alanında uzman yazarlarımızdan kaliteli içerikleri keşfetmeye hazır olun!
+            </p>
+        </div>
+    </div>
+
+    @await Component.InvokeAsync("_BlogPartial")
+
+</section>
+
+@await Component.InvokeAsync("_StatsPartial")
+
+@* @await Component.InvokeAsync("_ContactPartial") *@
+
+@* @await Html.PartialAsync("~/Views/ContactMessage/Index.cshtml") *@
+@await Html.PartialAsync("_ContactPartial",Model)

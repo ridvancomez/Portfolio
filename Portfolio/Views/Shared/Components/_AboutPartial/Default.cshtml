@@ -1,0 +1,27 @@
+﻿@using EntityLayer.Concrete
+@model List<About>
+
+@foreach (var item in Model)
+{
+
+
+    <div class="row narrow section-intro has-bottom-sep">
+        <div class="col-full text-center">
+            <h3>Hakkımda</h3>
+            <h1>@item.Title</h1>
+            <p class="lead">@item.SubDescription</p>
+        </div>
+    </div>
+
+    <div class="row about-content">
+
+        <div class="col-six tab-full left">
+            <h3>@item.DetailTitle</h3>
+
+            <p>@item.Detail</p>
+        </div>
+        @await Component.InvokeAsync("_SkillPartial")
+
+    </div>
+    
+}

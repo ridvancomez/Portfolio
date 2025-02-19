@@ -1,0 +1,27 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+
+<div class="row blog-content">
+    <div class="col-full">
+
+        <div class="blog-list block-1-2 block-tab-full">
+
+            @foreach (var item in Model)
+            {
+                <article class="col-block">
+
+                    <div class="blog-date">
+                        <a href="blog-single.html">@item.Date.ToString("dd MM yyyy")</a>
+                    </div>
+
+                    <h2 class="h01"><a href="blog-single.html">@item.Title</a></h2>
+                    <p>
+                        @item.CoverLetter
+                    </p>
+                </article>
+            }
+
+        </div> <!-- end blog-list -->
+
+    </div> <!-- end col-full -->
+</div>
